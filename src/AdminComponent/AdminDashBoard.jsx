@@ -65,7 +65,7 @@ export const AdminDashBoard = () => {
 
       return () => clearTimeout(timer);
     }
-  }, [message]);
+  }, [message ]);
 
   const fetchBuses = async () => {
     setLoading(true);
@@ -138,8 +138,10 @@ export const AdminDashBoard = () => {
   const handleAddBusStop = async (busId) => {
     setLoading(true);
     try {
-      await AddbusStop(newBusStop.stopName, newBusStop.fare, busId, token);
-      fetchBusStops(busId);
+      const response = await AddbusStop(newBusStop.stopName, newBusStop.fare, busId, token);
+      console.log(response)
+      // fetchBusStops(busId);
+      // console.log(busStops);
       setNewBusStop({ stopName: "", fare: "" });
       setAddStopExpanded((prev) => ({ ...prev, [busId]: false }));
       setMessage({

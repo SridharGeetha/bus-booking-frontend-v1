@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { isAdmin, isAuthenticated, logout } from "../Service/service";
 import "/src/css/navbar.css";
 import { toast, ToastContainer } from "react-toastify";
+import LoginIcon from "@mui/icons-material/Login";
+import LogoutIcon from "@mui/icons-material/Logout";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -88,14 +92,47 @@ export const Navbar = () => {
                   Logout
                 </button>
               </div>
-              <button
-                className={`mobile-menu-btn ${isMenuOpen ? "active" : ""}`}
-                onClick={toggleMobileMenu}
-              >
-                <span></span>
-                <span></span>
-                <span></span>
-              </button>
+              <div className={`mobile-menu-btn ${isMenuOpen ? "active" : ""}`}>
+                {isAuthenticated() ? (
+                  <div className="flex flex-row md:flex-row items-center gap-3">
+                    {isAdmin() && (
+                      <button
+                        onClick={handleDashBoard}
+                        className="w-full md:w-auto flex items-center justify-center gap-2 
+                   px-2 py-2 text-white font-semibold rounded-md
+                   bg-[linear-gradient(135deg,#ff6b6b,#ee5a24)]
+                   shadow-[0_4px_15px_rgba(255,107,107,0.3)]
+                   hover:opacity-90 transition"
+                      >
+                        <DashboardIcon fontSize="small" />
+                        
+                      </button>
+                    )}
+                    <button
+                      onClick={handleLogout}
+                      className="w-full md:w-auto flex items-center justify-center gap-2
+                 px-2 py-2 text-white font-semibold rounded-md
+                 bg-[linear-gradient(135deg,#ff6b6b,#ee5a24)]
+                 shadow-[0_4px_15px_rgba(255,107,107,0.3)]
+                 hover:opacity-90 transition"
+                    >
+                      <LogoutIcon fontSize="small" />
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={handleLogin}
+                    className="w-full md:w-auto flex items-center justify-center gap-2
+               px-5 py-2 text-white font-semibold rounded-md
+               bg-[linear-gradient(135deg,#ff6b6b,#ee5a24)]
+               shadow-[0_4px_15px_rgba(255,107,107,0.3)]
+               hover:opacity-90 transition"
+                  >
+                    <LoginIcon fontSize="small" />
+                    Sign In
+                  </button>
+                )}
+              </div>
 
               <div className={`mobile-menu ${isMenuOpen ? "active" : ""}`}>
                 <div className="mobile-user-info">
