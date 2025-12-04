@@ -1,0 +1,7 @@
+ -- bg color for website --  bg-linear-to-t from-blue-700 to-slate-950  
+-- button style -- bg-blue-500 shadow-md shadow-blue-500/50 hover:bg-blue-600 text-white font-medium py-3 rounded-lg transition duration-200   
+
+
+set setTimeout for loader
+
+await new Promise((resolve) => setTimeout(resolve, 3000));
