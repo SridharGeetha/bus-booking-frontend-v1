@@ -181,8 +181,8 @@
     return (
       <>
         <Navbar />
-        <div className="pt-20 relative min-h-screen overflow-x-hidden bg-linear-to-t from-blue-700 to-slate-950 text-white">
-            <SparklesCore
+        <div className="pt-20  relative min-h-screen overflow-x-hidden bg-linear-to-t from-blue-700 to-slate-950 text-white">
+            {/* <SparklesCore
               id="tsparticlesfullpage"
               background="transparent"
               minSize={0.6}
@@ -190,7 +190,7 @@
               particleDensity={100}
               className="w-full h-full absolute inset-0"
               particleColor="#00ffff"
-            />
+            /> */}
           <section className="relative py-16 px-8 text-center">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-5xl md:text-6xl font-extrabold bg-linear-to-r from-[#00b4db] to-[#0083b0] bg-clip-text text-transparent mb-4 inline-block">
